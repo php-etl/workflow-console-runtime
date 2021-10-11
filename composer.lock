@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efb2faf78b2f18c1b544c66db6bcd79a",
+    "content-hash": "5eb17a656e6ea59bbd668bffa7a8cbee",
     "packages": [
         {
             "name": "php-etl/bucket",
@@ -118,6 +118,58 @@
             "time": "2021-09-25T16:53:47+00:00"
         },
         {
+            "name": "php-etl/console-state",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/console-state.git",
+                "reference": "2d695a38fea5375754eac0694c9d80865cbdac79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/console-state/zipball/2d695a38fea5375754eac0694c9d80865cbdac79",
+                "reference": "2d695a38fea5375754eac0694c9d80865cbdac79",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "php-etl/pipeline-contracts": "^0.3.0",
+                "symfony/console": "^5.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Component\\State\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library allows you to use states",
+            "support": {
+                "issues": "https://github.com/php-etl/console-state/issues",
+                "source": "https://github.com/php-etl/console-state/tree/master"
+            },
+            "time": "2021-10-08T07:33:02+00:00"
+        },
+        {
             "name": "php-etl/pipeline",
             "version": "dev-master",
             "source": {
@@ -179,6 +231,59 @@
                 "source": "https://github.com/php-etl/pipeline/tree/master"
             },
             "time": "2021-09-30T15:39:02+00:00"
+        },
+        {
+            "name": "php-etl/pipeline-console-runtime",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/pipeline-console-runtime.git",
+                "reference": "5ee99bb7d5cea73b34cde20f0178b30412461c88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/pipeline-console-runtime/zipball/5ee99bb7d5cea73b34cde20f0178b30412461c88",
+                "reference": "5ee99bb7d5cea73b34cde20f0178b30412461c88",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "php-etl/console-state": "^0.1.0",
+                "php-etl/pipeline-contracts": "^0.3.0",
+                "symfony/console": "^5.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Component\\Runtime\\Pipeline\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library allows you to use the pipeline console runtime",
+            "support": {
+                "issues": "https://github.com/php-etl/pipeline-console-runtime/issues",
+                "source": "https://github.com/php-etl/pipeline-console-runtime/tree/master"
+            },
+            "time": "2021-10-11T09:33:32+00:00"
         },
         {
             "name": "php-etl/pipeline-contracts",
