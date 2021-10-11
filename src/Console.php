@@ -2,7 +2,7 @@
 
 namespace Kiboko\Component\Runtime\Workflow;
 
-use Kiboko\Component\Runtime\Pipeline\PipelineConsoleRuntime;
+use Kiboko\Component\Runtime\Pipeline\Console as PipelineConsoleRuntime;
 use Kiboko\Component\State;
 use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
@@ -10,7 +10,7 @@ use Kiboko\Contract\Pipeline\RunnableInterface;
 use Kiboko\Contract\Pipeline\SchedulingInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-final class WorkflowConsoleRuntime implements WorkflowRuntimeInterface
+final class Console implements WorkflowRuntimeInterface
 {
     private State\StateOutput\Workflow $state;
 
