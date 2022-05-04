@@ -7,16 +7,17 @@ use Kiboko\Component\State;
 use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
 use Kiboko\Contract\Pipeline\RunnableInterface;
-use Kiboko\Contract\Pipeline\SchedulingInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class Console implements WorkflowRuntimeInterface
 {
     private State\StateOutput\Workflow $state;
 
+    /** @var list<RunnableInterface> */
+    private array $jobs = [];
+
     public function __construct(
         private ConsoleOutput $output,
-        private SchedulingInterface $workflow,
         private PipelineRunnerInterface $pipelineRunner,
     ) {
         $this->state = new State\StateOutput\Workflow($output);
@@ -27,14 +28,14 @@ final class Console implements WorkflowRuntimeInterface
         $factory = require $filename;
 
         $pipeline = new Pipeline($this->pipelineRunner);
-        $this->workflow->job($pipeline);
+        $this->job($pipeline);
 
         return $factory(new PipelineConsoleRuntime($this->output, $pipeline, $this->state->withPipeline(basename($filename))));
     }
 
     public function job(RunnableInterface $job): self
     {
-        $this->workflow->job($job);
+        $this->jobs[] = $job;
 
         return $this;
     }
@@ -42,7 +43,7 @@ final class Console implements WorkflowRuntimeInterface
     public function run(int $interval = 1000): int
     {
         $count = 0;
-        foreach ($this->workflow->walk() as $job) {
+        foreach ($this->jobs as $job) {
             $count = $job->run($interval);
         }
         return $count;
