@@ -34,6 +34,15 @@ final class Console implements WorkflowRuntimeInterface
         return $factory(new PipelineConsoleRuntime($this->output, $pipeline, $this->state->withPipeline(basename($filename))));
     }
 
+    public function loadAction(string $filename): PipelineConsoleRuntime
+    {
+        $factory = require $filename;
+
+        $pipeline = new Pipeline($this->pipelineRunner);
+
+        return $factory(new PipelineConsoleRuntime($this->output, $pipeline, $this->state->withPipeline(basename($filename))));
+    }
+
     public function job(RunnableInterface $job): self
     {
         $this->jobs[] = $job;
