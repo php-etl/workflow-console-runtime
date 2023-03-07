@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\Runtime\Workflow;
 
+use Kiboko\Component\Action\Action;
 use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Component\Runtime\Pipeline\Console as PipelineConsoleRuntime;
+use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
 use Kiboko\Component\State;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
 use Kiboko\Contract\Pipeline\RunnableInterface;
@@ -34,13 +36,13 @@ final class Console implements WorkflowRuntimeInterface
         return $factory(new PipelineConsoleRuntime($this->output, $pipeline, $this->state->withPipeline(basename($filename))));
     }
 
-    public function loadAction(string $filename): PipelineConsoleRuntime
+    public function loadAction(string $filename): ActionConsoleRuntime
     {
         $factory = require $filename;
 
-        $pipeline = new Pipeline($this->pipelineRunner);
+        $action = new Action($this->pipelineRunner);
 
-        return $factory(new PipelineConsoleRuntime($this->output, $pipeline, $this->state->withPipeline(basename($filename))));
+        return $factory(new ActionConsoleRuntime($this->output, $action, $this->state->withAction(basename($filename))));
     }
 
     public function job(RunnableInterface $job): self
