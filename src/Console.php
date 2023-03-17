@@ -1,24 +1,26 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\Runtime\Workflow;
 
+use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Component\Runtime\Pipeline\Console as PipelineConsoleRuntime;
 use Kiboko\Component\State;
-use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
 use Kiboko\Contract\Pipeline\RunnableInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class Console implements WorkflowRuntimeInterface
 {
-    private State\StateOutput\Workflow $state;
+    private readonly State\StateOutput\Workflow $state;
 
     /** @var list<RunnableInterface> */
     private array $jobs = [];
 
     public function __construct(
-        private ConsoleOutput $output,
-        private PipelineRunnerInterface $pipelineRunner,
+        private readonly ConsoleOutput $output,
+        private readonly PipelineRunnerInterface $pipelineRunner,
     ) {
         $this->state = new State\StateOutput\Workflow($output);
     }
@@ -45,6 +47,7 @@ final class Console implements WorkflowRuntimeInterface
         foreach ($this->jobs as $job) {
             $count = $job->run($interval);
         }
+
         return $count;
     }
 }
