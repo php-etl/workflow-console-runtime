@@ -17,7 +17,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.2",
-        "symfony/console": "^5.2",
+        "symfony/console": "^5.2 || ^6.0",
         "php-etl/pipeline-contracts": "^0.4@dev",
         "php-etl/pipeline": "^0.5@dev",
         "php-etl/console-state": "^0.2@dev",
