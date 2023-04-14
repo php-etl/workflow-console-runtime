@@ -6,20 +6,15 @@ namespace Kiboko\Component\Runtime\Workflow;
 
 use Kiboko\Component\Action\Action;
 use Kiboko\Component\Pipeline\Pipeline;
-use Kiboko\Component\Runtime\Pipeline\Console as PipelineConsoleRuntime;
-use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
 use Kiboko\Component\State;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
-use Kiboko\Contract\Pipeline\RunnableInterface as PipelineRunnableInterface;
-use Kiboko\Contract\Action\RunnableInterface as ActionRunnableInterface;
-use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 final class Console implements WorkflowRuntimeInterface
 {
     private readonly State\StateOutput\Workflow $state;
 
-    /** @var list<PipelineRunnableInterface|ActionRunnableInterface> */
+    /** @var list<JobRunnableInterface> */
     private array $jobs = [];
 
     public function __construct(
@@ -47,7 +42,7 @@ final class Console implements WorkflowRuntimeInterface
         return $factory(new ActionConsoleRuntime($this->output, $action, $this->state->withAction(basename($filename))));
     }
 
-    public function job(PipelineRunnableInterface|ActionRunnableInterface $job): self
+    public function job(JobRunnableInterface $job): self
     {
         $this->jobs[] = $job;
 
