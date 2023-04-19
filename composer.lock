@@ -4,8 +4,172 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcf7f58ac07e2097589d4e22b588a838",
+    "content-hash": "963d8c5b5dbf1b34b8cd35b282543010",
     "packages": [
+        {
+            "name": "php-etl/action",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/action.git",
+                "reference": "e3a3baa20a4c09dea59879def5cd523f37d5d1dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/action/zipball/e3a3baa20a4c09dea59879def5cd523f37d5d1dc",
+                "reference": "e3a3baa20a4c09dea59879def5cd523f37d5d1dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "php-etl/action-contracts": "0.1.*",
+                "php-etl/satellite-contracts": "0.1.*",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "rector/rector": "^0.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Component\\Action\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library implements the Extract-Transform-Load pattern asynchronously in PHP with the help of iterators and generators",
+            "support": {
+                "issues": "https://github.com/php-etl/action/issues",
+                "source": "https://github.com/php-etl/action/tree/v0.1.0"
+            },
+            "time": "2023-04-19T09:11:30+00:00"
+        },
+        {
+            "name": "php-etl/action-console-runtime",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/action-console-runtime.git",
+                "reference": "5864a9af352690ea72438a2d7ec205ad8906aa7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/action-console-runtime/zipball/5864a9af352690ea72438a2d7ec205ad8906aa7f",
+                "reference": "5864a9af352690ea72438a2d7ec205ad8906aa7f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "php-etl/action-contracts": "0.1.*",
+                "php-etl/console-state": "*",
+                "php-etl/satellite-contracts": "0.1.*",
+                "symfony/console": "^6.0"
+            },
+            "require-dev": {
+                "rector/rector": "^0.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Component\\Runtime\\Action\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library allows you to use the action console runtime",
+            "support": {
+                "issues": "https://github.com/php-etl/action-console-runtime/issues",
+                "source": "https://github.com/php-etl/action-console-runtime/tree/v0.1.0"
+            },
+            "time": "2023-04-19T09:16:30+00:00"
+        },
+        {
+            "name": "php-etl/action-contracts",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/action-contracts.git",
+                "reference": "42b3f800ab4898e06249b73afad852160d225884"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/action-contracts/zipball/42b3f800ab4898e06249b73afad852160d225884",
+                "reference": "42b3f800ab4898e06249b73afad852160d225884",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "php-etl/bucket-contracts": "0.2.*"
+            },
+            "require-dev": {
+                "rector/rector": "^0.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Contract\\Action\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library describes contracts for the Action pattern.",
+            "support": {
+                "issues": "https://github.com/php-etl/action-contracts/issues",
+                "source": "https://github.com/php-etl/action-contracts/tree/v0.1.0"
+            },
+            "time": "2023-04-18T15:03:09+00:00"
+        },
         {
             "name": "php-etl/bucket",
             "version": "v0.3.0",
@@ -118,16 +282,16 @@
         },
         {
             "name": "php-etl/console-state",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/console-state.git",
-                "reference": "830d3f55506b1a743c6b8a12c62def7025188650"
+                "reference": "2f6de75fe9bef2e453f63d4e26706eb4f39a22e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/console-state/zipball/830d3f55506b1a743c6b8a12c62def7025188650",
-                "reference": "830d3f55506b1a743c6b8a12c62def7025188650",
+                "url": "https://api.github.com/repos/php-etl/console-state/zipball/2f6de75fe9bef2e453f63d4e26706eb4f39a22e9",
+                "reference": "2f6de75fe9bef2e453f63d4e26706eb4f39a22e9",
                 "shasum": ""
             },
             "require": {
@@ -170,9 +334,9 @@
             "description": "This library allows you to use states",
             "support": {
                 "issues": "https://github.com/php-etl/console-state/issues",
-                "source": "https://github.com/php-etl/console-state/tree/v0.2.0"
+                "source": "https://github.com/php-etl/console-state/tree/v0.2.1"
             },
-            "time": "2023-04-12T12:55:42+00:00"
+            "time": "2023-04-19T08:43:31+00:00"
         },
         {
             "name": "php-etl/pipeline",
@@ -297,21 +461,22 @@
         },
         {
             "name": "php-etl/pipeline-contracts",
-            "version": "v0.4.0",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-contracts.git",
-                "reference": "47e1e32aedb425c4624c1f6d9acf5ae839287fdf"
+                "reference": "b5c45090ed92f93530f3f69782bb016b52627b1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/47e1e32aedb425c4624c1f6d9acf5ae839287fdf",
-                "reference": "47e1e32aedb425c4624c1f6d9acf5ae839287fdf",
+                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/b5c45090ed92f93530f3f69782bb016b52627b1a",
+                "reference": "b5c45090ed92f93530f3f69782bb016b52627b1a",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "php-etl/bucket-contracts": "0.2.0"
+                "php-etl/bucket-contracts": "0.2.*",
+                "php-etl/satellite-contracts": "0.1.*"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
@@ -346,9 +511,61 @@
             "description": "This library describes contracts for the Extract-Transform-Load pattern.",
             "support": {
                 "issues": "https://github.com/php-etl/pipeline-contracts/issues",
-                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.4.0"
+                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.4.1"
             },
-            "time": "2023-04-06T10:08:37+00:00"
+            "time": "2023-04-18T14:32:57+00:00"
+        },
+        {
+            "name": "php-etl/satellite-contracts",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/satellite-contracts.git",
+                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/satellite-contracts/zipball/1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
+                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "rector/rector": "^0.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Contract\\Satellite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library describes contracts for defining satellite formats",
+            "support": {
+                "issues": "https://github.com/php-etl/satellite-contracts/issues",
+                "source": "https://github.com/php-etl/satellite-contracts/tree/v0.1.0"
+            },
+            "time": "2023-04-18T13:53:22+00:00"
         },
         {
             "name": "psr/container",
@@ -1588,16 +1805,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.12",
+            "version": "1.10.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "7b2aaf999e522e2b10011a594cf06dc37de7fbd8"
+                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7b2aaf999e522e2b10011a594cf06dc37de7fbd8",
-                "reference": "7b2aaf999e522e2b10011a594cf06dc37de7fbd8",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
+                "reference": "f07bf8c6980b81bf9e49d44bd0caf2e737614a70",
                 "shasum": ""
             },
             "require": {
@@ -1646,7 +1863,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-12T10:33:29+00:00"
+            "time": "2023-04-12T19:29:52+00:00"
         },
         {
             "name": "psr/cache",
