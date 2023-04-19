@@ -4,8 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a660ab73fad701e3d4fb0e8fc6ba572",
+    "content-hash": "963d8c5b5dbf1b34b8cd35b282543010",
     "packages": [
+        {
+            "name": "php-etl/action",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-etl/action.git",
+                "reference": "e3a3baa20a4c09dea59879def5cd523f37d5d1dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-etl/action/zipball/e3a3baa20a4c09dea59879def5cd523f37d5d1dc",
+                "reference": "e3a3baa20a4c09dea59879def5cd523f37d5d1dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "php-etl/action-contracts": "0.1.*",
+                "php-etl/satellite-contracts": "0.1.*",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "rector/rector": "^0.15.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kiboko\\Component\\Action\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiboko SAS",
+                    "homepage": "http://kiboko.fr"
+                },
+                {
+                    "name": "Grégory Planchat",
+                    "email": "gregory@kiboko.fr"
+                }
+            ],
+            "description": "This library implements the Extract-Transform-Load pattern asynchronously in PHP with the help of iterators and generators",
+            "support": {
+                "issues": "https://github.com/php-etl/action/issues",
+                "source": "https://github.com/php-etl/action/tree/v0.1.0"
+            },
+            "time": "2023-04-19T09:11:30+00:00"
+        },
         {
             "name": "php-etl/action-console-runtime",
             "version": "v0.1.0",
