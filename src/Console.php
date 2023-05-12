@@ -6,6 +6,7 @@ namespace Kiboko\Component\Runtime\Workflow;
 
 use Kiboko\Component\Action\Action;
 use Kiboko\Component\Pipeline\Pipeline;
+use Kiboko\Component\Runtime\Action\ActionRuntimeInterface;
 use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
 use Kiboko\Component\Runtime\Pipeline\PipelineRuntimeInterface;
 use Kiboko\Component\State;
@@ -36,7 +37,7 @@ final class Console implements WorkflowRuntimeInterface
         return new PipelineProxy($factory, $this->output, $pipeline, $this->state, basename($filename));
     }
 
-    public function loadAction(string $filename): ActionConsoleRuntime
+    public function loadAction(string $filename): ActionRuntimeInterface
     {
         $factory = require $filename;
 
