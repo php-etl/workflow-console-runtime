@@ -18,9 +18,10 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PipelineProxy implements PipelineRuntimeInterface
 {
-    /** @var list<callable> */
+    /** @var callable $callback */
     private $callback;
-    private array $callbacks = [];
+    /** @var list<callable> $queuedCalls */
+    private array $queuedCalls = [];
 
     public function __construct(
         callable $callback,
@@ -37,7 +38,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($extractor, $rejection, $state): void {
+        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($extractor, $rejection, $state): void {
             $runtime->extract($extractor, $rejection, $state);
         };
 
@@ -49,7 +50,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($transformer, $rejection, $state): void {
+        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($transformer, $rejection, $state): void {
             $runtime->transform($transformer, $rejection, $state);
         };
 
@@ -61,7 +62,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($loader, $rejection, $state): void {
+        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($loader, $rejection, $state): void {
             $runtime->load($loader, $rejection, $state);
         };
 
@@ -74,11 +75,11 @@ class PipelineProxy implements PipelineRuntimeInterface
 
         ($this->callback)($runtime);
 
-        foreach ($this->callbacks as $callback) {
-            $callback($this->callback);
+        foreach ($this->queuedCalls as $queuedCall) {
+            $queuedCall($this->callback);
         }
 
-        $this->callbacks = [];
+        $this->queuedCalls = [];
 
         return $runtime->run($interval);
     }
