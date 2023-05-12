@@ -22,7 +22,7 @@ class PipelineProxy implements PipelineRuntimeInterface
     private $callback;
 
     private array $callbacks = [];
-    private PipelineRuntimeInterface $decorated;
+    private readonly PipelineRuntimeInterface $decorated;
 
     public function __construct(
         callable $callback,
