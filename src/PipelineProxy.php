@@ -18,19 +18,19 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PipelineProxy implements PipelineRuntimeInterface
 {
-    /** @var callable $callback */
-    private $callback;
     /** @var list<callable> $queuedCalls */
     private array $queuedCalls = [];
 
     public function __construct(
-        callable $callback,
+        callable $factory,
         private readonly ConsoleOutput $output,
         private readonly PipelineInterface&WalkableInterface $pipeline,
         private readonly State\StateOutput\Workflow $state,
         private readonly string $filename,
     ) {
-        $this->callback = $callback;
+        $this->queuedCalls [] = static function (PipelineConsoleRuntime $runtime) {
+            $factory($runtime);
+        };
     }
 
     public function extract(
@@ -38,7 +38,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($extractor, $rejection, $state): void {
+        $this->queuedCalls[] = static function (PipelineConsoleRuntime $runtime) use ($extractor, $rejection, $state): void {
             $runtime->extract($extractor, $rejection, $state);
         };
 
@@ -50,7 +50,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($transformer, $rejection, $state): void {
+        $this->queuedCalls[] = static function (PipelineConsoleRuntime $runtime) use ($transformer, $rejection, $state): void {
             $runtime->transform($transformer, $rejection, $state);
         };
 
@@ -62,7 +62,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         RejectionInterface $rejection,
         StateInterface $state,
     ): self {
-        $this->queuedCalls[] = function (PipelineConsoleRuntime $runtime) use ($loader, $rejection, $state): void {
+        $this->queuedCalls[] = static function (PipelineConsoleRuntime $runtime) use ($loader, $rejection, $state): void {
             $runtime->load($loader, $rejection, $state);
         };
 
@@ -73,10 +73,8 @@ class PipelineProxy implements PipelineRuntimeInterface
     {
         $runtime = new PipelineConsoleRuntime($this->output, $this->pipeline, $this->state->withPipeline($this->filename));
 
-        ($this->callback)($runtime);
-
         foreach ($this->queuedCalls as $queuedCall) {
-            $queuedCall($this->callback);
+            $queuedCall($this);
         }
 
         $this->queuedCalls = [];
