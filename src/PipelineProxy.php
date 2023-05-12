@@ -77,6 +77,8 @@ class PipelineProxy implements PipelineRuntimeInterface
 
     public function run(int $interval = 1000): int
     {
+        ($this->callback)($this->decorated);
+
         foreach ($this->callbacks as $callback) {
             $callback($this->callback);
         }
