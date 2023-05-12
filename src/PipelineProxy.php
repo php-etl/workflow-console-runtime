@@ -29,6 +29,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         private readonly string $filename,
     ) {
         $this->queuedCalls [] = static function (PipelineConsoleRuntime $runtime) {
+            $factory = null;
             $factory($runtime);
         };
     }
