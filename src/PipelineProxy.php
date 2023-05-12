@@ -18,21 +18,17 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PipelineProxy implements PipelineRuntimeInterface
 {
-    /** @var list<callable> $callbacks */
+    /** @var list<callable> */
     private $callback;
-
     private array $callbacks = [];
-    private readonly PipelineRuntimeInterface $decorated;
 
     public function __construct(
         callable $callback,
-        ConsoleOutput $output,
-        PipelineInterface&WalkableInterface $pipeline,
-        State\StateOutput\Workflow $state,
-        string $filename,
-    )
-    {
-        $this->decorated = new PipelineConsoleRuntime($output, $pipeline, $state->withPipeline($filename));
+        private readonly ConsoleOutput $output,
+        private readonly PipelineInterface&WalkableInterface $pipeline,
+        private readonly State\StateOutput\Workflow $state,
+        private readonly string $filename,
+    ) {
         $this->callback = $callback;
     }
 
@@ -40,10 +36,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         ExtractorInterface $extractor,
         RejectionInterface $rejection,
         StateInterface $state,
-    ): self
-    {
-        $this->callbacks[] = function () use ($extractor, $rejection, $state): void {
-            $this->decorated->extract($extractor, $rejection, $state);
+    ): self {
+        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($extractor, $rejection, $state): void {
+            $runtime->extract($extractor, $rejection, $state);
         };
 
         return $this;
@@ -53,10 +48,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         TransformerInterface $transformer,
         RejectionInterface $rejection,
         StateInterface $state,
-    ): self
-    {
-        $this->callbacks[] = function () use ($transformer, $rejection, $state): void {
-            $this->decorated->transform($transformer, $rejection, $state);
+    ): self {
+        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($transformer, $rejection, $state): void {
+            $runtime->transform($transformer, $rejection, $state);
         };
 
         return $this;
@@ -66,10 +60,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         LoaderInterface $loader,
         RejectionInterface $rejection,
         StateInterface $state,
-    ): self
-    {
-        $this->callbacks[] = function () use ($loader, $rejection, $state): void {
-            $this->decorated->load($loader, $rejection, $state);
+    ): self {
+        $this->callbacks[] = function (PipelineConsoleRuntime $runtime) use ($loader, $rejection, $state): void {
+            $runtime->load($loader, $rejection, $state);
         };
 
         return $this;
@@ -77,7 +70,9 @@ class PipelineProxy implements PipelineRuntimeInterface
 
     public function run(int $interval = 1000): int
     {
-        ($this->callback)($this->decorated);
+        $runtime = new PipelineConsoleRuntime($this->output, $this->pipeline, $this->state->withPipeline($this->filename));
+
+        ($this->callback)($runtime);
 
         foreach ($this->callbacks as $callback) {
             $callback($this->callback);
@@ -85,6 +80,6 @@ class PipelineProxy implements PipelineRuntimeInterface
 
         $this->callbacks = [];
 
-        return $this->decorated->run($interval);
+        return $runtime->run($interval);
     }
 }
