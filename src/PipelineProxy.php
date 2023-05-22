@@ -18,7 +18,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PipelineProxy implements PipelineRuntimeInterface
 {
-    /** @var list<callable> $queuedCalls */
+    /** @var list<callable> */
     private array $queuedCalls = [];
 
     public function __construct(
