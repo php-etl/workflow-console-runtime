@@ -74,7 +74,7 @@ class PipelineProxy implements PipelineRuntimeInterface
         $runtime = new PipelineConsoleRuntime($this->output, $this->pipeline, $this->state->withPipeline($this->filename));
 
         foreach ($this->queuedCalls as $queuedCall) {
-            $queuedCall($this);
+            $queuedCall($runtime);
         }
 
         $this->queuedCalls = [];
