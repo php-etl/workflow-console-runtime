@@ -6,11 +6,10 @@ namespace Kiboko\Component\Runtime\Workflow;
 
 use Kiboko\Component\Action\Action;
 use Kiboko\Component\Pipeline\Pipeline;
-use Kiboko\Component\Runtime\Action\ActionRuntimeInterface;
-use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
 use Kiboko\Component\Runtime\Pipeline\PipelineRuntimeInterface;
 use Kiboko\Component\State;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
+use Kiboko\Contract\Satellite\RunnableInterface;
 use Kiboko\Contract\Satellite\RunnableInterface as JobRunnableInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -37,13 +36,13 @@ final class Console implements WorkflowRuntimeInterface
         return new PipelineProxy($factory, $this->output, $pipeline, $this->state, basename($filename));
     }
 
-    public function loadAction(string $filename): ActionRuntimeInterface
+    public function loadAction(string $filename): RunnableInterface
     {
         $factory = require $filename;
 
         $action = new Action();
 
-        return $factory(new ActionConsoleRuntime($this->output, $action, $this->state->withAction(basename($filename))));
+        return new ActionProxy($factory, $this->output, $action, $this->state, basename($filename));
     }
 
     public function job(JobRunnableInterface $job): self
