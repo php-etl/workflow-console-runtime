@@ -7,6 +7,4 @@ namespace Kiboko\Component\Runtime\Workflow;
 use Kiboko\Contract\Pipeline\SchedulingInterface;
 use Kiboko\Contract\Satellite\RunnableInterface;
 
-interface WorkflowRuntimeInterface extends SchedulingInterface, RunnableInterface
-{
-}
+interface WorkflowRuntimeInterface extends SchedulingInterface, RunnableInterface {}
