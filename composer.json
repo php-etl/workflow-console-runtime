@@ -18,18 +18,19 @@
     "require": {
         "php": "^8.2",
         "symfony/console": "^6.0",
-        "php-etl/pipeline-contracts": "0.4.*",
+        "php-etl/pipeline-contracts": "0.5.*",
         "php-etl/satellite-contracts": "0.1.*",
         "php-etl/pipeline": "*",
         "php-etl/console-state": "*",
         "php-etl/pipeline-console-runtime": "*",
         "php-etl/action-console-runtime": "*",
-        "php-etl/action": "*"
+        "php-etl/action": "*",
+        "php-etl/action-contracts": "0.2.*"
     },
     "require-dev": {
         "rector/rector": "^0.15",
         "phpstan/phpstan": "^1.10",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "friendsofphp/php-cs-fixer": "^3.38"
     },
     "autoload": {
         "psr-4": {

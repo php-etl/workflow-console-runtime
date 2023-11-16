@@ -9,6 +9,7 @@ use Kiboko\Component\Pipeline\Pipeline;
 use Kiboko\Component\Runtime\Pipeline\PipelineRuntimeInterface;
 use Kiboko\Component\State;
 use Kiboko\Contract\Pipeline\PipelineRunnerInterface;
+use Kiboko\Contract\Satellite\CodeInterface;
 use Kiboko\Contract\Satellite\RunnableInterface;
 use Kiboko\Contract\Satellite\RunnableInterface as JobRunnableInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -27,22 +28,18 @@ final class Console implements WorkflowRuntimeInterface
         $this->state = new State\StateOutput\Workflow($output);
     }
 
-    public function loadPipeline(string $filename): PipelineRuntimeInterface
+    public function loadPipeline(CodeInterface $job, string $filename): PipelineRuntimeInterface
     {
         $factory = require $filename;
 
-        $pipeline = new Pipeline($this->pipelineRunner);
-
-        return new PipelineProxy($factory, $this->output, $pipeline, $this->state, basename($filename));
+        return new PipelineProxy($factory, $this->output, $this->pipelineRunner, $this->state, $job);
     }
 
-    public function loadAction(string $filename): RunnableInterface
+    public function loadAction(CodeInterface $job, string $filename): RunnableInterface
     {
         $factory = require $filename;
 
-        $action = new Action();
-
-        return new ActionProxy($factory, $this->output, $action, $this->state, basename($filename));
+        return new ActionProxy($factory, $this->output, $this->state, $job);
     }
 
     public function job(JobRunnableInterface $job): self

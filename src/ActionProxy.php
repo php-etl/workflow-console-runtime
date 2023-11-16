@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\Runtime\Workflow;
 
+use Kiboko\Component\Action\Action;
 use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
 use Kiboko\Component\State;
-use Kiboko\Contract\Action\ExecutingActionInterface;
+use Kiboko\Contract\Satellite\CodeInterface;
 use Kiboko\Contract\Satellite\RunnableInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -18,9 +19,8 @@ class ActionProxy implements RunnableInterface
     public function __construct(
         callable $factory,
         private readonly ConsoleOutput $output,
-        private readonly ExecutingActionInterface $action,
         private readonly State\StateOutput\Workflow $state,
-        private readonly string $filename,
+        private readonly CodeInterface $code,
     ) {
         $this->queuedCalls[] = static function (ActionConsoleRuntime $runtime) use ($factory): void {
             $factory($runtime);
@@ -29,7 +29,10 @@ class ActionProxy implements RunnableInterface
 
     public function run(int $interval = 1000): int
     {
-        $runtime = new ActionConsoleRuntime($this->output, $this->action, $this->state->withAction($this->filename));
+        $state = $this->state->withAction((string) $this->code);
+        $action = new Action();
+
+        $runtime = new ActionConsoleRuntime($this->output, $action, $state);
 
         foreach ($this->queuedCalls as $queuedCall) {
             $queuedCall($runtime);
