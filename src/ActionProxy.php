@@ -6,7 +6,6 @@ namespace Kiboko\Component\Runtime\Workflow;
 
 use Kiboko\Component\Action\Action;
 use Kiboko\Component\Runtime\Action\Console as ActionConsoleRuntime;
-use Kiboko\Component\State;
 use Kiboko\Contract\Satellite\CodeInterface;
 use Kiboko\Contract\Satellite\RunnableInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -19,7 +18,7 @@ class ActionProxy implements RunnableInterface
     public function __construct(
         callable $factory,
         private readonly ConsoleOutput $output,
-        private readonly State\StateOutput\Workflow $state,
+        private readonly Workflow $state,
         private readonly CodeInterface $code,
     ) {
         $this->queuedCalls[] = static function (ActionConsoleRuntime $runtime) use ($factory): void {

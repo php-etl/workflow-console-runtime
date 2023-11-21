@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "424fe071a05aee8e6c05379f0102a21a",
+    "content-hash": "c5ecd61b66be15981a1f8c3ce7681234",
     "packages": [
         {
             "name": "composer/pcre",
@@ -319,16 +319,16 @@
         },
         {
             "name": "php-etl/action",
-            "version": "dev-main",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/action.git",
-                "reference": "ada465212aa5ca81ecbf992444116a5e968eb2b5"
+                "reference": "cbf14e1f9656768ca93eff4f90c2e8bc4bdfe439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/action/zipball/ada465212aa5ca81ecbf992444116a5e968eb2b5",
-                "reference": "ada465212aa5ca81ecbf992444116a5e968eb2b5",
+                "url": "https://api.github.com/repos/php-etl/action/zipball/cbf14e1f9656768ca93eff4f90c2e8bc4bdfe439",
+                "reference": "cbf14e1f9656768ca93eff4f90c2e8bc4bdfe439",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,6 @@
                 "friendsofphp/php-cs-fixer": "^3.38",
                 "rector/rector": "^0.15"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -371,35 +370,34 @@
             "description": "This library implements the Extract-Transform-Load pattern asynchronously in PHP with the help of iterators and generators",
             "support": {
                 "issues": "https://github.com/php-etl/action/issues",
-                "source": "https://github.com/php-etl/action/tree/main"
+                "source": "https://github.com/php-etl/action/tree/v0.2.2"
             },
-            "time": "2023-11-16T14:03:02+00:00"
+            "time": "2023-11-21T15:42:56+00:00"
         },
         {
             "name": "php-etl/action-console-runtime",
-            "version": "dev-main",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/action-console-runtime.git",
-                "reference": "bee0c080d7149cafcdddf18af3c87b89c1d7c3fc"
+                "reference": "8751e919fc9bd844e866a477078785ce5d5039e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/action-console-runtime/zipball/bee0c080d7149cafcdddf18af3c87b89c1d7c3fc",
-                "reference": "bee0c080d7149cafcdddf18af3c87b89c1d7c3fc",
+                "url": "https://api.github.com/repos/php-etl/action-console-runtime/zipball/8751e919fc9bd844e866a477078785ce5d5039e7",
+                "reference": "8751e919fc9bd844e866a477078785ce5d5039e7",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
+                "php-etl/action": "*",
                 "php-etl/action-contracts": "0.2.*",
-                "php-etl/console-state": "*",
                 "php-etl/satellite-contracts": "0.1.*",
                 "symfony/console": "^6.0"
             },
             "require-dev": {
                 "rector/rector": "^0.15"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -428,9 +426,9 @@
             "description": "This library allows you to use the action console runtime",
             "support": {
                 "issues": "https://github.com/php-etl/action-console-runtime/issues",
-                "source": "https://github.com/php-etl/action-console-runtime/tree/main"
+                "source": "https://github.com/php-etl/action-console-runtime/tree/v0.2.1"
             },
-            "time": "2023-11-16T15:14:22+00:00"
+            "time": "2023-11-21T15:44:13+00:00"
         },
         {
             "name": "php-etl/action-contracts",
@@ -488,16 +486,16 @@
         },
         {
             "name": "php-etl/bucket",
-            "version": "dev-main",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/bucket.git",
-                "reference": "5509c2f95ba0f4268466f6e68d7c6de935cf9153"
+                "reference": "8b3f318398ceaca1fb25154ff8a06adf175b1c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/bucket/zipball/5509c2f95ba0f4268466f6e68d7c6de935cf9153",
-                "reference": "5509c2f95ba0f4268466f6e68d7c6de935cf9153",
+                "url": "https://api.github.com/repos/php-etl/bucket/zipball/8b3f318398ceaca1fb25154ff8a06adf175b1c31",
+                "reference": "8b3f318398ceaca1fb25154ff8a06adf175b1c31",
                 "shasum": ""
             },
             "require": {
@@ -510,7 +508,6 @@
                 "phpstan/phpstan": "^1.10",
                 "rector/rector": "^0.15"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -539,9 +536,9 @@
             "description": "This library implements the Extract-Transform-Load pattern asynchronously in PHP with the help of iterators and generators",
             "support": {
                 "issues": "https://github.com/php-etl/bucket/issues",
-                "source": "https://github.com/php-etl/bucket/tree/main"
+                "source": "https://github.com/php-etl/bucket/tree/v0.4.0"
             },
-            "time": "2023-11-16T14:02:23+00:00"
+            "time": "2023-11-16T15:32:18+00:00"
         },
         {
             "name": "php-etl/bucket-contracts",
@@ -586,7 +583,7 @@
                     "homepage": "http://kiboko.fr"
                 },
                 {
-                    "name": "Grégory Planchat",
+                    "name": "Grégory Planchatn rules",
                     "email": "gregory@kiboko.fr"
                 }
             ],
@@ -598,75 +595,17 @@
             "time": "2023-11-14T14:39:36+00:00"
         },
         {
-            "name": "php-etl/console-state",
-            "version": "v0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-etl/console-state.git",
-                "reference": "fa939c577925d65f658b0851ad59298fe179b153"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/console-state/zipball/fa939c577925d65f658b0851ad59298fe179b153",
-                "reference": "fa939c577925d65f658b0851ad59298fe179b153",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2",
-                "php-etl/pipeline-contracts": "0.5.*",
-                "symfony/console": "^6.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "infection/infection": "^0.26.18",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^10.0",
-                "rector/rector": "^0.15"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "0.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Kiboko\\Component\\State\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kiboko SAS",
-                    "homepage": "http://kiboko.fr"
-                },
-                {
-                    "name": "Grégory Planchat",
-                    "email": "gregory@kiboko.fr"
-                }
-            ],
-            "description": "This library allows you to use states",
-            "support": {
-                "issues": "https://github.com/php-etl/console-state/issues",
-                "source": "https://github.com/php-etl/console-state/tree/v0.3.0"
-            },
-            "time": "2023-11-16T10:41:27+00:00"
-        },
-        {
             "name": "php-etl/pipeline",
-            "version": "dev-main",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline.git",
-                "reference": "cc4973e9ba86048918af70044640b2436b982e70"
+                "reference": "46621f5208cb2b530309c737e846c37cfb64078c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline/zipball/cc4973e9ba86048918af70044640b2436b982e70",
-                "reference": "cc4973e9ba86048918af70044640b2436b982e70",
+                "url": "https://api.github.com/repos/php-etl/pipeline/zipball/46621f5208cb2b530309c737e846c37cfb64078c",
+                "reference": "46621f5208cb2b530309c737e846c37cfb64078c",
                 "shasum": ""
             },
             "require": {
@@ -687,7 +626,6 @@
                 "phpunit/phpunit": "^10.0",
                 "rector/rector": "^0.15"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -716,27 +654,26 @@
             "description": "This library implements the Extract-Transform-Load pattern asynchronously in PHP with the help of iterators and generators",
             "support": {
                 "issues": "https://github.com/php-etl/pipeline/issues",
-                "source": "https://github.com/php-etl/pipeline/tree/main"
+                "source": "https://github.com/php-etl/pipeline/tree/v0.6.1"
             },
-            "time": "2023-11-16T13:58:24+00:00"
+            "time": "2023-11-16T15:32:18+00:00"
         },
         {
             "name": "php-etl/pipeline-console-runtime",
-            "version": "dev-main",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-console-runtime.git",
-                "reference": "314cfc6edc822af2ed42f4320e07979f026bf7f7"
+                "reference": "fe4d5adabe28b016985d01867e05469bb0cc49f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline-console-runtime/zipball/314cfc6edc822af2ed42f4320e07979f026bf7f7",
-                "reference": "314cfc6edc822af2ed42f4320e07979f026bf7f7",
+                "url": "https://api.github.com/repos/php-etl/pipeline-console-runtime/zipball/fe4d5adabe28b016985d01867e05469bb0cc49f1",
+                "reference": "fe4d5adabe28b016985d01867e05469bb0cc49f1",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "php-etl/console-state": "*",
                 "php-etl/pipeline-contracts": "0.5.*",
                 "symfony/console": "^6.0"
             },
@@ -745,11 +682,10 @@
                 "phpstan/phpstan": "^1.10",
                 "rector/rector": "^0.15"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.3.x-dev"
+                    "dev-main": "0.4.x-dev"
                 }
             },
             "autoload": {
@@ -774,22 +710,22 @@
             "description": "This library allows you to use the pipeline console runtime",
             "support": {
                 "issues": "https://github.com/php-etl/pipeline-console-runtime/issues",
-                "source": "https://github.com/php-etl/pipeline-console-runtime/tree/main"
+                "source": "https://github.com/php-etl/pipeline-console-runtime/tree/v0.4.1"
             },
-            "time": "2023-11-16T14:29:17+00:00"
+            "time": "2023-11-21T16:14:05+00:00"
         },
         {
             "name": "php-etl/pipeline-contracts",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-contracts.git",
-                "reference": "29aac4a1644c960355a17876e4a84bb8f0b89654"
+                "reference": "24c71241d16b7deca56d67ea0f1d591c8ae52f09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/29aac4a1644c960355a17876e4a84bb8f0b89654",
-                "reference": "29aac4a1644c960355a17876e4a84bb8f0b89654",
+                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/24c71241d16b7deca56d67ea0f1d591c8ae52f09",
+                "reference": "24c71241d16b7deca56d67ea0f1d591c8ae52f09",
                 "shasum": ""
             },
             "require": {
@@ -798,7 +734,7 @@
                 "php-etl/satellite-contracts": "0.1.*"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
+                "friendsofphp/php-cs-fixer": "^3.38",
                 "phpstan/phpstan": "^1.10",
                 "rector/rector": "^0.15"
             },
@@ -830,29 +766,29 @@
             "description": "This library describes contracts for the Extract-Transform-Load pattern.",
             "support": {
                 "issues": "https://github.com/php-etl/pipeline-contracts/issues",
-                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.5.0"
+                "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.5.1"
             },
-            "time": "2023-11-15T10:45:24+00:00"
+            "time": "2023-11-20T10:48:56+00:00"
         },
         {
             "name": "php-etl/satellite-contracts",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/satellite-contracts.git",
-                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41"
+                "reference": "d2be591800f42e460a59d864888aedf00f111dd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/satellite-contracts/zipball/1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
-                "reference": "1d2bc6822bfdb3efc6a1f490e706db995c99ef41",
+                "url": "https://api.github.com/repos/php-etl/satellite-contracts/zipball/d2be591800f42e460a59d864888aedf00f111dd7",
+                "reference": "d2be591800f42e460a59d864888aedf00f111dd7",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2"
             },
             "require-dev": {
-                "rector/rector": "^0.15.0"
+                "rector/rector": "^0.15"
             },
             "type": "library",
             "extra": {
@@ -882,22 +818,22 @@
             "description": "This library describes contracts for defining satellite formats",
             "support": {
                 "issues": "https://github.com/php-etl/satellite-contracts/issues",
-                "source": "https://github.com/php-etl/satellite-contracts/tree/v0.1.0"
+                "source": "https://github.com/php-etl/satellite-contracts/tree/v0.1.1"
             },
-            "time": "2023-04-18T13:53:22+00:00"
+            "time": "2023-11-20T10:48:56+00:00"
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.41",
+            "version": "1.10.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "c6174523c2a69231df55bdc65b61655e72876d76"
+                "reference": "bf84367c53a23f759513985c54ffe0d0c249825b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6174523c2a69231df55bdc65b61655e72876d76",
-                "reference": "c6174523c2a69231df55bdc65b61655e72876d76",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bf84367c53a23f759513985c54ffe0d0c249825b",
+                "reference": "bf84367c53a23f759513985c54ffe0d0c249825b",
                 "shasum": ""
             },
             "require": {
@@ -946,7 +882,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-05T12:57:57+00:00"
+            "time": "2023-11-21T16:30:46+00:00"
         },
         {
             "name": "psr/container",
@@ -2462,21 +2398,21 @@
     "packages-dev": [
         {
             "name": "rector/rector",
-            "version": "0.15.24",
+            "version": "0.15.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59"
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/716473919bcfdc27bdd2a32afb72adbf4c224e59",
-                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/015935c7ed9e48a4f5895ba974f337e20a263841",
+                "reference": "015935c7ed9e48a4f5895ba974f337e20a263841",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
-                "phpstan/phpstan": "^1.10.1"
+                "phpstan/phpstan": "^1.10.14"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -2511,7 +2447,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.24"
+                "source": "https://github.com/rectorphp/rector/tree/0.15.25"
             },
             "funding": [
                 {
@@ -2519,7 +2455,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-05T08:49:11+00:00"
+            "time": "2023-04-20T16:07:39+00:00"
         }
     ],
     "aliases": [],
@@ -2531,5 +2467,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

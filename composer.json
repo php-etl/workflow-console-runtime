@@ -21,7 +21,6 @@
         "php-etl/pipeline-contracts": "0.5.*",
         "php-etl/satellite-contracts": "0.1.*",
         "php-etl/pipeline": "*",
-        "php-etl/console-state": "*",
         "php-etl/pipeline-console-runtime": "*",
         "php-etl/action-console-runtime": "*",
         "php-etl/action": "*",
