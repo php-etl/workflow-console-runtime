@@ -37,6 +37,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         };
     }
 
+    /**
+     * @param StepRejectionInterface<array<string, mixed>|object> $rejection
+     */
     public function extract(
         StepCodeInterface $step,
         ExtractorInterface $extractor,
@@ -50,6 +53,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         return $this;
     }
 
+    /**
+     * @param StepRejectionInterface<array<string, mixed>|object> $rejection
+     */
     public function transform(
         StepCodeInterface $step,
         TransformerInterface $transformer,
@@ -63,6 +69,9 @@ class PipelineProxy implements PipelineRuntimeInterface
         return $this;
     }
 
+    /**
+     * @param StepRejectionInterface<array<string, mixed>|object> $rejection
+     */
     public function load(
         StepCodeInterface $step,
         LoaderInterface $loader,
