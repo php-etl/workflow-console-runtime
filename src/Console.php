@@ -14,8 +14,9 @@ final class Console implements WorkflowRuntimeInterface
 {
     private readonly Workflow $state;
 
-    /** @var list<RunnableInterface> */
+    /** @var array<string, array{CodeInterface, RunnableInterface}|RunnableInterface> */
     private array $jobs = [];
+
 
     public function __construct(
         private readonly ConsoleOutput $output,
