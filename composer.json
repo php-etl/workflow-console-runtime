@@ -27,8 +27,8 @@
         "php-etl/action-contracts": "0.2.*"
     },
     "require-dev": {
-        "rector/rector": "^2.0",
-        "phpstan/phpstan": "^2.2",
+        "rector/rector": "^2.3",
+        "phpstan/phpstan": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.38"
     },
     "autoload": {

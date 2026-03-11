@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "652679022a36b7bc7b87243e04c68485",
+    "content-hash": "6635e40dfa5d1f25a50347fbc59d5020",
     "packages": [
         {
             "name": "php-etl/action",
@@ -518,8 +518,8 @@
             "version": "2.2.x-dev",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4a1379b1e4a1b0fe04ab20efc25a473a359e1e12",
-                "reference": "4a1379b1e4a1b0fe04ab20efc25a473a359e1e12",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/940f86766c7a7214f00452005f48dea3999db82a",
+                "reference": "940f86766c7a7214f00452005f48dea3999db82a",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +565,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-11T13:18:18+00:00"
+            "time": "2026-03-11T16:56:35+00:00"
         },
         {
             "name": "psr/container",
